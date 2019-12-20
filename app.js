@@ -9,7 +9,7 @@ const app=express();
 app.use(express.static('public'));
 app.set('view engine','hbs');
 app.use(bodyParser.urlencoded({extended:true}));
-
+/*
 app.use(cookieParser());
 app.use(session({
     key: 'user_sid',
@@ -20,6 +20,7 @@ app.use(session({
         expires: 600000
     }
 }));
+
 
 app.use((req, res, next) => {
     if (req.cookies.user_sid && !req.session.user) {
@@ -36,7 +37,7 @@ const sessionChecker = (req, res, next) => {
 };
 
 
-/*
+
 const uri = "mongodb+srv://swap:<password>@cluster0-obbnb.mongodb.net/test?retryWrites=true&w=majority";
 const client = mongoose(uri, { useNewUrlParser: true });
 client.connect(err => {
@@ -68,11 +69,11 @@ const  userSchema=mongoose.Schema({
 
 const User=mongoose.model('User',userSchema);
 
-app.get('/login', sessionChecker, (req, res) => {
+app.get('/login', (req, res) => {
     res.render('login');
 });
 
-app.get('/register',sessionChecker,(req,res)=>{
+app.get('/register',(req,res)=>{
     res.render('register');
 });
 
@@ -80,21 +81,22 @@ app.get('/',(req,res)=>{
     res.render('home');
 });
 
+/*
 app.get('/show', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
        res.render('show');
     } else {
         res.redirect('/login');
     }
-});
+});*/
 
 app.get('/logout', (req, res) => {
-    if (req.session.user) {
+  /*  if (req.session.user) {
         res.clearCookie('user_sid');        
         res.render('home')
-    } else {
+    } else {*/
         res.render('login');
-    }
+    //}
 });
 
 app.post('/register',(req,res)=>{
@@ -120,7 +122,7 @@ app.post('/register',(req,res)=>{
                         });    
                         newUser.save((err,user)=>{
                         if(!err){
-                            req.session.user = user.dataValues;
+                           // req.session.user = user.dataValues;
                             res.render('login');
                         }else{
                             res.send(err);
@@ -143,7 +145,7 @@ app.post('/login',(req,res)=>{
         }else{
             if(FoundEmail){
                if(FoundEmail.pass===pass){
-                    req.session.user = FoundEmail.dataValues;
+                   // req.session.user = FoundEmail.dataValues;
                     res.render('show',{data:FoundEmail});
                 }else{
                     res.send('incorrect password');
