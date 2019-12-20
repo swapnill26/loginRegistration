@@ -160,6 +160,6 @@ app.use(function (req, res, next) {
   });
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("running on post 3000")
 });
