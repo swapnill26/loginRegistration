@@ -36,15 +36,23 @@ const sessionChecker = (req, res, next) => {
 };
 
 
+/*
+const uri = "mongodb+srv://swap:<password>@cluster0-obbnb.mongodb.net/test?retryWrites=true&w=majority";
+const client = mongoose(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("userdb").collection("users");
+  // perform actions on the collection object
+  client.close();
+});*/
 
-mongoose.connect('mongodb+srv://swap:<password>@cluster0-obbnb.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true,useUnifiedTopology: true},(err)=>{
+const url = "mongodb+srv://swap:swap14@cluster0-obbnb.mongodb.net/userdb";
+mongoose.connect( url,{useNewUrlParser:true,useUnifiedTopology: true},(err)=>{
     if(err){
         console.log(err);
     }else{
         console.log('connected to Db');
     }
 });
-
 
 const  userSchema=mongoose.Schema({
     fname:String,
@@ -150,6 +158,6 @@ app.use(function (req, res, next) {
   });
 
 
-app.listen(process.env.PORT||3000,()=>{
+app.listen(process.env.PORT,()=>{
     console.log("running on post 3000")
 });
