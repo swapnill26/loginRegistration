@@ -37,7 +37,7 @@ const sessionChecker = (req, res, next) => {
 
 
 
-mongoose.connect('mongodb://localhost:27017/userdb',{useNewUrlParser:true,useUnifiedTopology: true},(err)=>{
+mongoose.connect('mongodb+srv://swap:<password>@cluster0-obbnb.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true,useUnifiedTopology: true},(err)=>{
     if(err){
         console.log(err);
     }else{
@@ -150,6 +150,6 @@ app.use(function (req, res, next) {
   });
 
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT||3000,()=>{
     console.log("running on post 3000")
 });
