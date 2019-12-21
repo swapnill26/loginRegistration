@@ -16,20 +16,17 @@
   <div class="container">
     <i class="fas fa-key fa-6x"></i>
   
-      <h1 class="display-3">Wel-Come {{data.fname}} </h1>     
+      <h1 class="display-3">Wel-Come <%= us.fname %> </h1>     
     <hr>
-      Name-{{data.fname}}&nbsp;{{data.mname}}&nbsp;{{data.lname}} </br>
-      Address-{{data.address}}.&nbsp;{{data.zip}} </br>
-      Enducation- <input type="text" value="{{data.education}}">
+      Name-<%= us.fname %>&nbsp;<%= us.lname %>&nbsp;<%= us.lname %> </br>
+      Address-<%= us.address %>&nbsp;<%= us.zip %> </br>
+      Education-<%= us.education %>
+
+     
       <br>
 
-
-
-
-
-
-    <hr>
-    <a class="btn btn-light btn-lg" href="/" role="button">Log Out</a>
+   <hr>
+    <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
    
   </div>
 </div>
