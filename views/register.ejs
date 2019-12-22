@@ -13,9 +13,7 @@
 <body>
 
 <div class="container mt-5">
-  <% if(messages.error){ %>
-    <div class="alert alert-danger"><%= messages.error %></div>
-  <% } %>
+ 
   <h1>Sign-Up</h1>
   <div class="row">
     <div class="col-sm-8">
@@ -23,23 +21,13 @@
         <div class="card-body">
 
           <!-- Makes POST request to /login route -->
-          <form action="/register" method="POST">
+          <form action="/signup" method="POST">           
         
             <div class="form-group">
-              <label for="text">First Name</label>
-              <input type="text" class="form-control" name="fname" required>
-            </div>
-             
-            <div class="form-group">
-              <label for="text">Middle Name</label>
-              <input type="text" class="form-control" name="mname" required>
-            </div>
-             
-            <div class="form-group">
-              <label for="text">Last Name</label>
-              <input type="text" class="form-control" name="lname" required>
-            </div>
-             
+              <label for="text">Name</label>
+              <input type="text" class="form-control" name="name" required>
+            </div>         
+                         
             <div class="form-group">
               <label for="text">Address</label>
               <input type="text" class="form-control" name="address" required>
@@ -54,7 +42,10 @@
               <label for="text">Education</label>
               <input type="text" class="form-control" name="education" required>
             </div>
-            
+            <div class="form-group">
+              <label for="text">Phone Number</label>
+              <input type="text" class="form-control" name="phno" required>
+            </div>
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" class="form-control" name="email">
@@ -71,9 +62,18 @@
         </div>
       </div>
     </div> 
+    <div class="col-sm-4">
+      <div class="jumbotron centered">
+        <div class="container">
+          <i class="fas fa-key fa-6x"></i>
+            <h1 class="card-body">DataGram</h1>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>
+
 
 </body>
 </html>

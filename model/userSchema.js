@@ -1,9 +1,7 @@
 const mongoose=require('mongoose');
 
-const  userSchema=mongoose.Schema({
-    fname:String,
-    mname:String,
-    lname:String,
+const userSchema=new mongoose.Schema({
+    name:String,
     address:String,
     zip:Number,
     phno:Number,
@@ -12,6 +10,6 @@ const  userSchema=mongoose.Schema({
     password:String
 });
 
-const User=mongoose.model('User',userSchema);
+const User=mongoose.model('user',userSchema);
 
 module.exports=User;
